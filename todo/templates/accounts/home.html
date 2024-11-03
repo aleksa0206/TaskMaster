@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+<body>
+
+    <div class="main">
+        <div class="navbar">
+            <div class="icon">
+                <h2 class="logo">TaskMaster</h2>
+            </div>
+
+            <div class="menu">
+                <ul>
+                    <li><a href="{% url 'home' %}">HOME</a></li>
+                    <li><a href="{% url 'about' %}">ABOUT</a></li>
+                    <li><a href="{% url 'smart' %}">SMART</a></li>
+                    <li><a href="{% url 'contact' %}">CONTACT</a></li>
+                </ul>
+            </div>
+
+            <div class="search">
+                <input class="srch" type="search" name="" placeholder="Type To text">
+                <a href="#"> <button class="btn">Search</button></a>
+            </div>
+
+        </div> 
+        <div class="content">
+            <h1>Task<span>Master</span> <br></h1>
+            <p class="par">"Welcome to TaskMaster – Your Ultimate Task Management Tool!<br>
+             Organize your plans, track your progress, and stay on top of your goals with ease.<br>
+              Whether you're managing personal projects or coordinating team tasks, TaskMaster <br>
+              has you covered."</p>
+
+                <button class="cn"><a href="{% url 'register' %}">JOIN US</a></button>
+
+                <div class="form">
+                    <h2>JOIN US</h2>
+                    <button class="btnn"><a href="{% url 'login' %}">Login</a></button>
+
+                    <p class="link">Dont't have an account<br>
+                    <a href="{% url 'register' %}">Sign up here</a></p>
+                    <p class="liw">Log in with</p>
+
+                    <div class="icons">
+                        <a  href="https://www.facebook.com/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                        <a href="https://www.instagram.com/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+                        <a href="https://twitter.com/" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                        <a href="mailto:youremail@gmail.com"><ion-icon name="logo-google"></ion-icon></a>
+                        <a href="skype:yourusername?call"><ion-icon name="logo-skype"></ion-icon></a>
+
+                    </div>
+                </div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+</body>
+</html>

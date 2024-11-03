@@ -1,0 +1,196 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+    <link rel="stylesheet" href="{% static 'css/moderator_dashboard.css' %}">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo"></div>
+            <ul class="menu">
+                <li class="active">
+                    <a href="#">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>Dashboard</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <i class="fas fa-user"></i>
+                        <span>Profile</span>
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="#">
+                        <span>Tasks(In progress)</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span>Tasks(Completed)</span>
+                    </a>
+                </li>
+
+                <li>
+                    <a href="#">
+                        <span>Task(Not Started)</span>
+                    </a>
+                </li>
+               
+                <li>
+                    <a href="#">
+                        <i class="fas fa-sign-out-alt"></i>
+                        <a href="{% url 'logout' %}"><span >Logout</span></a>
+                    </a>
+                </li>
+
+            </ul>
+    </div>
+
+    <div class="main--content">
+        <div class="header--wrapper">
+            <div class="header--title">
+                <span>User</span>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="user--info">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Search">
+                </div>
+                <!-- <img src="../image/image.jpg" alt="Profile Image"> -->
+            </div>
+            
+        </div>
+        <div class="card--container">
+            <h3 class="main--title">Today's data</h3>
+            <div class="card--wrapper">
+                <div class="payment--card light-red">
+                    <div class="card--header">
+                        <div class="ammount">
+                            <span class="title">
+                                Tasks
+                            </span><br>
+                            <span class="amount-value">
+                                {% comment %} $500.00 {% endcomment %}
+                            </span>
+                        </div>
+                        {% comment %} <i class="fas fa-dollar-sign icon"> {% endcomment %}
+
+                        </i>
+                    </div>
+                    {% comment %} <span class="card-detail">**** **** **** 3485</span> {% endcomment %}
+                </div>
+
+                
+
+
+            </div>
+        </div>
+
+        <div class="tabular--wrapper">
+            <h3 class="main--title"></h3>
+            <div class="table-container">
+                <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Update</th>
+
+                    </tr>
+                </thead>
+
+                    <tbody>
+                        {% for task in in_progress_tasks %}
+                        <tr>
+                          <th scope="row">{{ task.id }}</th>
+                          <td>{{ task.title }}</td>
+                          <td>{{ task.description }}</td>
+                          <td>{{ task.status }}</td>
+                           <td><a href="{% url 'task-update' task.id %}" class="btn btn-warning btn-sm">Update</a></td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No tasks in progress</td>
+                        </tr>
+                        {% endfor %}
+                       
+                    </tbody>
+                    
+            </table>
+    <br><br>
+                 <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Update</th>
+                    </tr>
+                </thead>
+
+                    <tbody>
+                        {% for task in completed_tasks %}
+                        <tr>
+                          <th scope="row">{{ task.id }}</th>
+                          <td>{{ task.title }}</td>
+                          <td>{{ task.description }}</td>
+                          <td>{{ task.status }}</td>
+                          <td><a href="{% url 'task-update' task.id %}" class="btn btn-warning btn-sm">Update</a></td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No tasks in progress</td>
+                        </tr>
+                        {% endfor %}
+                       
+                    </tbody>
+                    
+            </table>
+                    <br><br>
+                 <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Update</th>
+
+                    </tr>
+                </thead>
+
+                    <tbody>
+                        {% for task in not_started_tasks %}
+                        <tr>
+                          <th scope="row">{{ task.id }}</th>
+                          <td>{{ task.title }}</td>
+                          <td>{{ task.description }}</td>
+                          <td>{{ task.status }}</td>
+                          <td><a href="{% url 'task-update' task.id %}" class="btn btn-warning btn-sm">Update</a></td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                          <td colspan="4">No tasks in progress</td>
+                        </tr>
+                        {% endfor %}
+                       
+                    </tbody>
+                    
+            </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

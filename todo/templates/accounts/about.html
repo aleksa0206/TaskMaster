@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/about.css' %}">
+</head>
+<body>
+    <div class="row">
+        <div class="imgWrapper">
+            <img src="../../static/images/organization.jpg" alt="">
+        </div>
+        <div class="contentWrapper">
+            <div class="content">
+                <span class="textWrapper">
+                    <span></span>About us
+                </span>
+                <h2>Task Master</h2>
+                <p>TaskMaster is an intuitive task management application designed to help individuals and
+                     teams stay organized, track progress, and achieve their goals. Whether
+                      you're managing personal to-do lists or overseeing large projects, 
+                      TaskMaster simplifies the process of creating, assigning, and monitoring
+                       tasks.<br><br>
+
+                    Key features include:<br><br>
+                    
+                    Task creation and assignment: Easily create tasks, assign them to team members, and set deadlines.<br>
+                    Goal tracking: Set and track both short-term and long-term goals.<br><br>
+                    Progress monitoring: View detailed progress reports and analytics for better decision-making.<br><br>
+                    Collaboration tools: Work seamlessly with your team by sharing tasks, adding comments, and
+                     collaborating in real-time.<br><br>
+                    User roles: Regular users can manage their own tasks, moderators can
+                     oversee content and user activity, and administrators have full
+                      control over the platform.<br><br>
+                    Whether you're a solo user or part of a team, TaskMaster
+                     offers the flexibility and tools needed to stay on top
+                      of your work and ensure productivity.<br><br></p>
+                       <a href="{% url 'register' %}">START</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
